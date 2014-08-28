@@ -1,0 +1,20 @@
+{
+    "name": "sauve/presenters",
+    "description": "Simple inverse presenter for Laravel",
+    "minimum-stability": "stable",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Sauve Solutions Limited",
+            "email": "enquiries@sauvesolutions.co.uk"
+        }
+    ],
+    "require" : {
+        "nesbot/carbon":"1.*"
+    },
+    "autoload" : {
+        "psr-4": {
+            "sauve": "src"
+        }
+    }
+}
