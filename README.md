@@ -35,7 +35,7 @@ php composer.phar require SauveSolutions/presenters
 Usage
 ------
 
-Using the library is very simple and takes just two steps.
+Using the library is very simple.
 
 1. Derive an unpresenter from SauveSolutions\presenters\Unpresenter and implement the necessary methods.
 2. In a controller instantiate an instance of the Unpresenter and pass the input array to the constructor.
@@ -51,8 +51,13 @@ class ExampleUnpresenter extends SauveSolutions\presenters\Unpresenter {
     //specify any checkboxes that may be expected in the data sent with the web request
     protected $checkboxes = ['important'];
 
+    /**
+     * Specify the validation rules to be applied.
+     *
+     * @param $bUpdate boolean Pass true if the object is being updated, false otherwise.
+     * @return array The validation rules.
+     */
     public function getValidationRules($bUpdate) {
-
         //if updating an existing record then $bUpdate would be true, for a new record it would be false. This allows you
         //to create different rules for updates or recrod creation, e.g. unique checks that exclude the current record.
         //for this example however simply use a single response.
@@ -62,6 +67,8 @@ class ExampleUnpresenter extends SauveSolutions\presenters\Unpresenter {
                 );
 
     }
+
+
 }
 ```
 
@@ -69,7 +76,7 @@ Then in your controller method, for example Store.
 
 ```php
 
-public function Store() {
+public function store() {
 
     $input = Input::except('_token', '_method');
 
@@ -100,3 +107,16 @@ Alternative
 -----------
 An alternative is to call $unpresenter->parseInput() which processes all of the input data and returns a plain php array
 of the transformed inputs.
+
+
+Presenters
+----------
+Sauve Solutions also has developed a simple presenter framework for transforming data for display. This is being tidied up
+at present and will be added to this package shortly.
+
+Laravel 4.3
+------------
+Laravel 4.3 has implemented a new FormRequest object that performs the validation functionality of the Unpresenter class. Together with the
+ability to resolve a class from a hint on a controller method out of the IoC container will provide a further productivity boost.
+It is likely that the Unpresenter functionality can be combined with the FormRequest functionality in a subclass to provide the
+transformation capbility. This will be investigated in a future update.
