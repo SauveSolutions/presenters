@@ -24,12 +24,12 @@ Installation
 ------------
 You must install this library through Composer:
 
-```bash
-# Install Composer
-curl -sS https://getcomposer.org/installer | php
-
-# Require SauveSolutions/presenters as a dependency
-php composer.phar require SauveSolutions/presenters
+```javascript
+{
+    "require": {
+        "SauveSolutions/presenters": "0.2.*"
+    }
+}
 ```
 
 Usage
@@ -37,7 +37,8 @@ Usage
 
 Using the library is very simple.
 
-1. Derive an unpresenter from SauveSolutions\presenters\Unpresenter and implement the necessary methods.
+1. Derive an unpresenter class from SauveSolutions\presenters\Unpresenter and implement the functionality you need, typically
+this is just listing the date variables, the checkbox variables and the validation rules.
 2. In a controller instantiate an instance of the Unpresenter and pass the input array to the constructor.
 3. Call validate and trap any ValidationExceptions thrown.
 4. Access input variables directly from the unpresenter instance.
@@ -113,6 +114,13 @@ Presenters
 ----------
 Sauve Solutions also has developed a simple presenter framework for transforming data for display. This is being tidied up
 at present and will be added to this package shortly.
+
+FAQ
+---
+*The DateConverter trait uses an English locale date format (d/m/Y) how can I change this?* The simplest approach would be
+to derive your own Unpresenter class which overrides DateConverter::getDateFormat(). It is expected in any non trivial application
+that the date format is an attribute of the User or a similar global setting. Then use your Unpresenter class as the base class
+ of any other Unpresenters you create.
 
 Laravel 4.3
 ------------
