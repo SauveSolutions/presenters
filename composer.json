@@ -1,5 +1,5 @@
 {
-    "name": "sauve/presenters",
+    "name": "sauvesolutions/presenters",
     "description": "Simple inverse presenter for Laravel",
     "minimum-stability": "stable",
     "license": "MIT",
