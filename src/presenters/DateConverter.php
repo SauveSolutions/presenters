@@ -4,7 +4,7 @@
  * License : MIT
  */
 
-namespace sauvesolutions\presenters;
+namespace SauveSolutions\presenters;
 
 use Carbon\Carbon;
 

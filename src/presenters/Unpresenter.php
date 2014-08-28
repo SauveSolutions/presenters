@@ -4,9 +4,9 @@
  * License : MIT
  */
 
-namespace sauvesolutions\presenters;
+namespace SauveSolutions\presenters;
 
-use Sauve\exceptions\ValidationException;
+use SauveSolutions\exceptions\ValidationException;
 
 /**
  * Class Unpresenter

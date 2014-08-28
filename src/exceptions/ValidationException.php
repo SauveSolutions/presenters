@@ -4,7 +4,7 @@
  * License : MIT
  */
 
-namespace sauvesolutions\exceptions;
+namespace SauveSolutions\exceptions;
 
 /**
  * Class ValidationException
