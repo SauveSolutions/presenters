@@ -8,7 +8,7 @@ converted from a human readable format into a format suitable for storage.
 
 This is an **Unpresenter**.
 
-This implementation provides three core capabilities
+This implementation provides four core capabilities
 
 * Automatically handles date conversion from a defined format into a Carbon instance for storage
 * Automatically handles checkboxes from forms (not nested)
