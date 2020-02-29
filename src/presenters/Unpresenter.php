@@ -83,10 +83,10 @@ class Unpresenter implements \ArrayAccess {
     /**
      * Return the validation rules to be applied.
      *
-     * @param $bUpdate boolean Indicates whether the validation rules should be applied for an update or a first entry.
+     * @param $update boolean Indicates whether the validation rules should be applied for an update or a first entry.
      * @return array The validation rules.
      */
-    public function getValidationRules($bUpdate) {
+    public function getValidationRules($update) {
         return [];
     }
 
@@ -105,7 +105,7 @@ class Unpresenter implements \ArrayAccess {
      *
      * @param $bUpdate boolean pass true to apply validation for an update.
      *
-     * @throws \Sauve\exceptions\ValidationException
+     * @throws \SauveSolutions\exceptions\ValidationException
      */
     public function validate($bUpdate) {
         $validator = \Validator::make($this->input, $this->getValidationRules($bUpdate));
