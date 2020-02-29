@@ -103,12 +103,13 @@ class Unpresenter implements \ArrayAccess {
     /**
      * Perform the validation of the input array
      *
-     * @param $bUpdate boolean pass true to apply validation for an update.
+     * @param $update boolean pass true to apply validation for an update.
      *
      * @throws \SauveSolutions\exceptions\ValidationException
      */
-    public function validate($bUpdate) {
-        $validator = \Validator::make($this->input, $this->getValidationRules($bUpdate));
+    public function validate($update) {
+
+        $validator = \Validator::make($this->input, $this->getValidationRules($update));
 
         if ($validator->fails()) {
             throw new ValidationException($validator->getMessageBag()->toArray());
@@ -129,7 +130,7 @@ class Unpresenter implements \ArrayAccess {
     protected function getTransformedValue($key) {
 
         //firstly lets see if an accessor function has been created. Accessor functions have a prototype getAttributeName()
-        $methodName = 'get'.studly_case($key);
+        $methodName = 'get'.\Illuminate\Support\Str::studly($key);
 
         if (method_exists($this, $methodName)) {
             //so an accessor function exists - we are going to delegate to that function.
