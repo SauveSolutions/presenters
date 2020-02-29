@@ -58,9 +58,9 @@ class ExampleUnpresenter extends SauveSolutions\presenters\Unpresenter {
      * @param $bUpdate boolean Pass true if the object is being updated, false otherwise.
      * @return array The validation rules.
      */
-    public function getValidationRules($bUpdate) {
-        //if updating an existing record then $bUpdate would be true, for a new record it would be false. This allows you
-        //to create different rules for updates or recrod creation, e.g. unique checks that exclude the current record.
+    public function getValidationRules($update) {
+        //if updating an existing record then $update would be true, for a new record it would be false. This allows you
+        //to create different rules for updates to existing records or creation of new records, e.g. unique checks that exclude the current record.
         //for this example however simply use a single response.
 
         return array(
@@ -110,10 +110,6 @@ An alternative is to call $unpresenter->parseInput() which processes all of the 
 of the transformed inputs.
 
 
-Presenters
-----------
-Sauve Solutions also has developed a simple presenter framework for transforming data for display. This is being tidied up
-at present and will be added to this package shortly.
 
 FAQ
 ---
